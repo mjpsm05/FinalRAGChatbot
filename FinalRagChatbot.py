@@ -144,8 +144,8 @@ else:
                 json={
                     "inputs": full_prompt, 
                     "parameters": {
-                        "max_new_tokens": 300, 
-                        "temperature": 0.5  # Lower temperature for more controlled responses
+                        "max_new_tokens": 1200, 
+                        "temperature": 0.4  # Lower temperature for more controlled responses
                     }
                 }
             )
