@@ -32,6 +32,30 @@ index = pinecone_client.Index(index_name)
 # Initialize the embedding model
 embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
+# Show title page with instructions only if not logged in
+if "logged_in" not in st.session_state or not st.session_state.logged_in:
+    # Sidebar instructions visible only on the title page
+    st.sidebar.markdown("""
+    # Family History RAG Chatbot Instructions
+
+    Welcome to the Family History RAG Chatbot! This chatbot allows you to ask questions about a family's history, and it will respond based on the information stored in the database.
+
+    ## How to Use:
+    1. **Login**: Enter your username and password to access the chatbot.
+    2. **Ask Questions**: Once logged in, type your question in the input box and the chatbot will respond.
+    3. **Logout**: Click the 'Logout' button in the sidebar to log out and return to the login screen.
+
+    ### Features:
+    - Personalized responses based on your username.
+    - AI-generated responses using the Llama-3.2 model and context from the Pinecone database.
+
+    ## Troubleshooting:
+    - If you don't get a response, try again later.
+    - Ensure you're using the correct username and password.
+
+    Created by Mazamesso Meba 
+    """)
+
 if "logged_in" in st.session_state and st.session_state.logged_in:
     st.title(f"Family History RAG Chatbot - {st.session_state.username}")
 else:
